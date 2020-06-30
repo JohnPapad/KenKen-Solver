@@ -43,12 +43,12 @@ class kenken(CSP):
             col = var[2]
             for j in range(n) :  #get all other variables located in the same row
                 neighbor = 'x' + row +str(j)
-                if neighbor != var :  # dont include var itself
+                if neighbor != var :  # don't include var itself
                     each_var_neighbors.append(neighbor)
 
             for i in range(n): #get all other variables located in the same column
                 neighbor = 'x' + str(i) + col
-                if neighbor != var : #dont include var itself
+                if neighbor != var : #don't include var itself
                     each_var_neighbors.append(neighbor)
 
             neighbors[var] = each_var_neighbors  # add variable's neighbors to dict
@@ -145,7 +145,7 @@ class kenken(CSP):
                         if clq_var == A:
                             A_checked = 1
                         else:
-                            B_checked = 1;
+                            B_checked = 1
 
                     else:
                         return False
@@ -185,9 +185,9 @@ class kenken(CSP):
 
                             if res == goal_number:
                                 if clq_var == A:
-                                    A_checked = 1;
+                                    A_checked = 1
                                 else:
-                                    B_checked = 1;
+                                    B_checked = 1
 
                             else:
                                 return False
@@ -212,9 +212,9 @@ class kenken(CSP):
                                 if res == goal_number:
 
                                     if clq_var == A:
-                                        A_checked = 1;
+                                        A_checked = 1
                                     else:
-                                        B_checked = 1;
+                                        B_checked = 1
 
                                     return_false = 0
                                     break  # we found a good poss_val so break for loop
@@ -248,7 +248,7 @@ class kenken(CSP):
                             if operator == 'add':
                                 clq_neighbor_val = 0  # so if it is a addition add 0 to sum
                             else:
-                                clq_neighbor_val = 1  #or if it is a multiplication multplay 1 to sum
+                                clq_neighbor_val = 1  #or if it is a multiplication multiplay 1 to sum
 
                         if operator == 'add':
                             sum += clq_neighbor_val
@@ -262,7 +262,7 @@ class kenken(CSP):
                         if sum != goal_number:
                             return False
 
-                    else:               #if at least one neighbor in the clique has beem assigned a value
+                    else:               #if at least one neighbor in the clique has been assigned a value
                         if operator == 'add':
                             if sum >= goal_number:  #because at least one neighbor's value must be added to the sum at some time and the min value is 1
                                 return False         #so the goal number will be surpassed in any case
@@ -271,7 +271,7 @@ class kenken(CSP):
                             if sum > goal_number:  #again at least one neighbor's value must be multiplied to the sum at some time but the min value is 1 which will not change the sum
                                 return False
 
-                    if (A_index != -1) and (B_index != -1): # if both A and B are in the same clique and satisfly all the constraints
+                    if (A_index != -1) and (B_index != -1): # if both A and B are in the same clique and satisfy all the constraints
                         return True
                     else:                                   #one of A,B is in this clique
                         if clq_var == A:
